@@ -46,6 +46,15 @@
 </head>
 
 <body>
+    <?php
+    if (!empty($messages)) {
+        print('<div id="messages">');
+        foreach ($messages as $message) {
+            print($message);
+        }
+        print('</div>');
+    }
+    ?>
     <div class="form-container">
         <div class="form-title">Анкета</div>
         <form method="POST" action="">
