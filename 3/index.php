@@ -35,7 +35,7 @@ if (empty($_POST['parts'])) {
     print('Выберите количество конечностей.<br/>');
     $errors = TRUE;
 }
-if (empty($_POST['select'])) {
+if (empty($_POST['powers'])) {
     print('Выберите суперспособнос(ть/ти).<br/>');
     $errors = TRUE;
 }
@@ -60,7 +60,7 @@ $date = $_POST['date'];
 $gender = $_POST['gender'];
 $parts = $_POST['parts'];
 $policy = $_POST['policy'];
-$powers = implode(',',$_POST['select']);
+$powers = implode(',',$_POST['powers']);
 
 $user = 'u47529';
 $pass = '5988897';
