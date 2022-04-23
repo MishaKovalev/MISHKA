@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     $errors = FALSE;
     // проверка поля имени
-    if (!preg_match('/^([а-яА-Я])/', $_POST['name'])) {
+    if (!preg_match('/^([а-яА-Я]|[a-zA-Z])/', $_POST['name'])) {
         setcookie('name_error', '1', time() + 24 * 60 * 60);
         $errors = TRUE;
     } else {
