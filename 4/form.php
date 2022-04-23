@@ -89,23 +89,23 @@
                 <span class="block-title">Конечности:</span>
                 <div class="radio-btns">
                     <div class="parts-radio">
-                        <input class="form-check-input" type="radio" name="parts" value="1" <?php if ($values['limbs'] == '1') {print 'checked';}; ?>/>
+                        <input class="form-check-input" type="radio" name="parts" value="1" <?php if ($values['parts'] == '1') {print 'checked';}; ?>/>
                         <label class="form-check-label" for="male">1</label>
                     </div>
                     <div class="parts-radio">
-                        <input class="form-check-input" type="radio" name="parts" value="2" <?php if ($values['limbs'] == '2') {print 'checked';}; ?>/>
+                        <input class="form-check-input" type="radio" name="parts" value="2" <?php if ($values['parts'] == '2') {print 'checked';}; ?>/>
                         <label class="form-check-label" for="female">2</label>
                     </div>
                     <div class="parts-radio">
-                        <input class="form-check-input" type="radio" name="parts" value="3" <?php if ($values['limbs'] == '3') {print 'checked';}; ?>/>
+                        <input class="form-check-input" type="radio" name="parts" value="3" <?php if ($values['parts'] == '3') {print 'checked';}; ?>/>
                         <label class="form-check-label" for="female">3</label>
                     </div>
                     <div class="parts-radio">
-                        <input class="form-check-input" type="radio" name="parts" value="4" <?php if ($values['limbs'] == '4') {print 'checked';}; ?>/>
+                        <input class="form-check-input" type="radio" name="parts" value="4" <?php if ($values['parts'] == '4') {print 'checked';}; ?>/>
                         <label class="form-check-label" for="female">4</label>
                     </div>
                     <div class="parts-radio">
-                        <input class="form-check-input" type="radio" name="parts" value="m" <?php if ($values['limbs'] == 'm') {print 'checked';}; ?>/>
+                        <input class="form-check-input" type="radio" name="parts" value="m" <?php if ($values['parts'] == 'm') {print 'checked';}; ?>/>
                         <label class="form-check-label" for="female">Больше</label>
                     </div>
                 </div>
