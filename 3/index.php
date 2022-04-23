@@ -61,7 +61,7 @@ $pass = '5988897';
 $db = new PDO('mysql:host=localhost;dbname=u47529', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 
 try {
-    $stmt = $db->prepare("INSERT INTO members SET name = ?, email = ?, date = ?, gender = ?, parts = ?, bio = ?, policy = ?");
+    $stmt = $db->prepare("INSERT INTO users SET name = ?, email = ?, date = ?, gender = ?, parts = ?, bio = ?, policy = ?");
     $stmt->execute(array($name, $email, $date, $gender, $parts, $bio, $policy));
     $user_id = $db->lastInsertId();
 
