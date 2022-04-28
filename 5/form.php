@@ -64,7 +64,7 @@
     <div class="form-container">
         <div class="form-title">
             Анкета
-            <span><a href="login.php?logout=1" <?php (!empty($_SESSION['login'])) ? "print(display:inline-block)" : "print(display:none)"; ?>>выйти из учетной записи</a></span>
+            <span><a href="login.php?logout=1" <?php (empty($_SESSION['login'])) ? print('style="display:none"') : print('style="display:inline-block"'); ?>>выйти из учетной записи</a></span>
         </div>
         <form method="POST" action="">
             <input type="text" class="form-control" name="name" placeholder="Ваше имя..." 
