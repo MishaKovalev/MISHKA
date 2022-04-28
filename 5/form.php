@@ -62,7 +62,10 @@
     }
     ?>
     <div class="form-container">
-        <div class="form-title">Анкета</div>
+        <div class="form-title">
+            Анкета
+            <span><a href="login.php?logout=1" <?php (!empty($_SESSION['login'])) ? "print(display:inline-block)" : "print(display:none)"; ?>>выйти из учетной записи</a></span>
+        </div>
         <form method="POST" action="">
             <input type="text" class="form-control" name="name" placeholder="Ваше имя..." 
             <?php if ($errors['name']) {print 'class="error"';} ?> value="<?php print $values['name']; ?>"/>
