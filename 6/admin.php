@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $powers->execute(array($member_id));
         $result = $powers->fetchAll(PDO::FETCH_ASSOC);
         $str = "";
-        foreach ($result as $power) {
+        foreach ($powers as $power) {
             $str .= $power['name'] . ',';
         }
         $values['select'] = $str;
@@ -52,10 +52,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = $_POST['email'];
         $date = $_POST['date'];
         $gender = $_POST['gender'];
-        $limbs = $_POST['parts'];
+        $parts = $_POST['parts'];
         $bio = $_POST['bio'];
         $policy = $_POST['policy'];
-        $select = $_POST['powers'];
+        $select = $_POST['select'];
         $user = 'u47529';
         $pass = '5988897';
         $db = new PDO('mysql:host=localhost;dbname=u47529', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
             $stmt = $db->prepare("UPDATE users2 SET name = ?, email = ?, date = ?, gender = ?, parts = ?, bio = ?, policy = ? WHERE login = ?");
-            $stmt->execute(array($name, $email, $date, $gender, $limbs, $bio, $policy, $result['login']));
+            $stmt->execute(array($name, $email, $date, $gender, $parts, $bio, $policy, $result['login']));
 
             $superpowers = $db->prepare("DELETE FROM superusers WHERE user_id = ?");
             $superpowers->execute(array($member_id));
@@ -135,7 +135,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
-    <title>Админка</title>
+    <title>Admin</title>
     <style>
         .records-list {
             padding: 30px 40px;
@@ -185,8 +185,6 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
                         <td><?php echo $value['amount'] ?></td>
                     </tr>
             <?php }
-            } else {
-                echo "<div>Записи не найдены</div>";
             } ?>
         </table>
     </div>
@@ -196,9 +194,9 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
                 <th>Имя</th>
                 <th>Email</th>
                 <th>Дата рождения</th>
+                <th>Пол</th>
                 <th>Конечности</th>
-                <th>Гендер</th>
-                <th>Способности</th>
+                <th>Команда</th>
                 <th>Биография</th>
             </tr>
             <?php
@@ -218,7 +216,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
                             $superpowers = $powers->fetchAll(PDO::FETCH_ASSOC);
                             $str = "";
                             foreach ($superpowers as $power) {
-                                $str .= $power['name'] . ';';
+                                $str .= $power['name'] . ',';
                             }
                             echo $str;
                             ?>
