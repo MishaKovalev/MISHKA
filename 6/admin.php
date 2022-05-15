@@ -163,11 +163,13 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
         table td {
             border: 2px solid #E3E6EC;
             border-collapse: collapse;
+            padding: 8px;
+            font-size: 14px;
+            
         }
-
-        td,
+        
         th {
-            font-size: 13px;
+            font-size: 16px;
             padding: 0px 8px;
         }
     </style>
@@ -177,8 +179,8 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
     <div class="records-list">
         <table>
             <tr>
-                <th>Название способности</th>
-                <th>Количество обладателей</th>
+                <th>Способность</th>
+                <th>Число пользователей</th>
             </tr>
             <?php
             if (!empty($powersCount)) {
