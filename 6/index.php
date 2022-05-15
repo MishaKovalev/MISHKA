@@ -171,7 +171,7 @@ else {
         setcookie('powers_error', '1', time() + 24 * 60 * 60);
         $errors = TRUE;
     } else {
-        setcookie('powers_value', $_POST['powers'], time() + 12 * 30 * 24 * 60 * 60);
+        setcookie('powers_value', implode(',', $_POST['powers']), time() + 12 * 30 * 24 * 60 * 60);
     }
 
     // проверка поля биографии
