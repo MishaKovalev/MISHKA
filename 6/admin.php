@@ -136,7 +136,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
     <meta charset="utf-8" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
-    <title>Admin</title>
+    <title>Админка</title>
     <style>
         * {
             margin: 0;
@@ -150,12 +150,12 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
 
         body {
             display: flex;
-            justify-content: space-evenly;
             flex-direction: column;
             align-items: center;
         }
 
         table {
+            margin: 70px 0px;
             width: 100%;
             border-collapse: collapse;
         }
@@ -199,7 +199,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
                 <th>Дата рождения</th>
                 <th>Конечности</th>
                 <th>Пол</th>
-                <th>Команда</th>
+                <th>Суперспособности</th>
                 <th>Биография</th>
             </tr>
             <?php
@@ -210,8 +210,8 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
                         <td><?php echo $value['name'] ?></td>
                         <td><?php echo $value['email'] ?></td>
                         <td><?php echo $value['date'] ?></td>
-                        <td><?php echo $value['gender'] ?></td>
                         <td><?php echo $value['parts'] ?></td>
+                        <td><?php echo $value['gender'] ?></td>
                         <td>
                             <?php
                             $powers = $db->prepare("SELECT distinct name from superusers join superpowers3 pow on power_id = pow.id where user_id = ?");
@@ -221,6 +221,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
                             foreach ($superpowers as $power) {
                                 $str .= $power['name'] . ',';
                             }
+                            echo $str;
                             ?>
                         </td>
                         <td id="bio">
