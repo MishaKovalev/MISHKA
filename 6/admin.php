@@ -156,7 +156,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
         table th {
             font-size: 15px;
             color: #fff;
-            background: black;
+            background: lightgrey;
             height: 30px;
         }
 
