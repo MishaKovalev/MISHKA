@@ -114,7 +114,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
 
     print('Вы успешно авторизовались и видите защищенные паролем данные.');
 
-    $stmt = $db->prepare("powers * FROM users2");
+    $stmt = $db->prepare("SELECT * FROM users2");
     $stmt->execute([]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -135,7 +135,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
-    <title>Админка</title>
+    <title>Admin</title>
     <style>
         .records-list {
             padding: 30px 40px;
