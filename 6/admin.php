@@ -209,7 +209,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
                         <td><?php echo $value['name'] ?></td>
                         <td><?php echo $value['email'] ?></td>
                         <td><?php echo $value['date'] ?></td>
-                        <td><?php echo $value['limbs'] ?></td>
+                        <td><?php echo $value['parts'] ?></td>
                         <td><?php echo $value['gender'] ?></td>
                         <td>
                             <?php
