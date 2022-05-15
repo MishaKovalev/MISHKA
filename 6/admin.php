@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $values['email'] = $result['email'];
         $values['birth'] = $result['date'];
         $values['gender'] = $result['gender'];
-        $values['parts'] = $result['parts'];
+        $values['limbs'] = $result['limbs'];
         $values['bio'] = $result['bio'];
         $values['policy'] = $result['policy'];
 
@@ -42,16 +42,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $powers = $db->prepare("SELECT distinct name from superusers join superpowers3 pow on power_id = pow.id where user_id = ?");
         $powers->execute(array($member_id));
         $result = $powers->fetchAll(PDO::FETCH_ASSOC);
-        $values['abilities'] = implode(',', $result);
+        $values['powers'] = implode(',', $result);
     } else {
         $name = $_POST['name'];
         $email = $_POST['email'];
         $date = $_POST['date'];
         $gender = $_POST['gender'];
-        $limbs = $_POST['parts'];
+        $limbs = $_POST['limbs'];
         $bio = $_POST['bio'];
         $policy = $_POST['policy'];
-        $select = $_POST['abilities'];
+        $select = $_POST['powers'];
         $user = 'u47529';
         $pass = '5988897';
         $db = new PDO('mysql:host=localhost;dbname=u47529', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
@@ -143,7 +143,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
         }
 
         table td {
-            border: 2px solid lightgrey;
+            border: 2px solid grey;
             border-collapse: collapse;
         }
 
@@ -156,7 +156,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
         table th {
             font-size: 15px;
             color: #fff;
-            background: grey;
+            background: #ae52f8;
             height: 30px;
         }
 
@@ -205,7 +205,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
                         <td><?php echo $value['name'] ?></td>
                         <td><?php echo $value['email'] ?></td>
                         <td><?php echo $value['date'] ?></td>
-                        <td><?php echo $value['parts'] ?></td>
+                        <td><?php echo $value['limbs'] ?></td>
                         <td><?php echo $value['gender'] ?></td>
                         <td>
                             <?php
@@ -244,7 +244,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
         </table>
     </div>
     <?php if (!empty($_POST['edit'])) {
-        include('adminform.php');
+        include('updateform.php');
     } ?>
 </body>
 
