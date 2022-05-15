@@ -137,6 +137,23 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
     <title>Admin</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table td {
+            border: 2px solid #E3E6EC;
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            font-size: 13px;
+            padding: 0px 8px;
+        }
+    </style>
 </head>
 
 <body>
@@ -214,7 +231,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
         </table>
     </div>
     <?php if (!empty($_POST['edit'])) {
-        include('edit.php');
+        include('updateform.php');
     } ?>
 </body>
 
