@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $values['email'] = $result['email'];
         $values['birth'] = $result['date'];
         $values['gender'] = $result['gender'];
-        $values['limbs'] = $result['limbs'];
+        $values['parts'] = $result['parts'];
         $values['bio'] = $result['bio'];
         $values['policy'] = $result['policy'];
 
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = $_POST['email'];
         $date = $_POST['date'];
         $gender = $_POST['gender'];
-        $limbs = $_POST['limbs'];
+        $limbs = $_POST['parts'];
         $bio = $_POST['bio'];
         $policy = $_POST['policy'];
         $select = $_POST['abilities'];
@@ -177,7 +177,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
             if (!empty($powersCount)) {
                 foreach ($powersCount as $value) {
             ?><tr>
-                        <td><?php echo $value['powers'] ?></td>
+                        <td><?php echo $value['power'] ?></td>
                         <td><?php echo $value['amount'] ?></td>
                     </tr>
             <?php }
@@ -205,7 +205,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
                         <td><?php echo $value['name'] ?></td>
                         <td><?php echo $value['email'] ?></td>
                         <td><?php echo $value['date'] ?></td>
-                        <td><?php echo $value['limbs'] ?></td>
+                        <td><?php echo $value['parts'] ?></td>
                         <td><?php echo $value['gender'] ?></td>
                         <td>
                             <?php
