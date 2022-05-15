@@ -5,59 +5,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        .form-container {
-            width: 450px;
-            margin: 50px auto;
-            padding: 15px;
-            border-radius: 7px;
-            border: 1px solid rgba(0, 0, 0, 0.4);
-            background-color: rgba(255, 255, 255, 0.4);
-        }
-
-        .form-title {
-            margin-bottom: 5px;
-            font-size: 20px;
-            font-weight: 500;
-        }
-
-        input.form-control,
-        .block {
-            margin-bottom: 7px;
-        }
-
-        .radio-btns {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            border-radius: 5px;
-        }
-
-        .btn-container {
-            width: 100%;
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body>
-    <?php
-    if (!empty($messages)) {
-        print('<div id="messages">');
-        foreach ($messages as $message) {
-            print($message);
-        }
-        print('</div>');
-    }
-    ?>
     <div class="form-container">
         <div class="form-title">
-            Обновление данных для пользователя <?php echo $values['name'] ?>
+            Обновление данных для пользователя
         </div>
         <form method="POST" action="">
             <input type="text" class="form-control" name="name" placeholder="Ваше имя..." />
