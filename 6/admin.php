@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         foreach ($powers as $power) {
             $str .= $power['name'] . ',';
         }
-        $values['select'] = $str;
+        $values['powers'] = $str;
     } else {
         $name = $_POST['name'];
         $email = $_POST['email'];
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $parts = $_POST['parts'];
         $bio = $_POST['bio'];
         $policy = $_POST['policy'];
-        $select = $_POST['select'];
+        $powers = $_POST['powers'];
         $user = 'u47529';
         $pass = '5988897';
         $db = new PDO('mysql:host=localhost;dbname=u47529', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $superpowers = $db->prepare("DELETE FROM superusers WHERE user_id = ?");
             $superpowers->execute(array($member_id));
 
-            foreach ($select as $value) {
+            foreach ($powers as $value) {
                 $stmt = $db->prepare("SELECT id from superpowers3 WHERE name = ?");
                 $stmt->execute(array($value));
                 $power_id = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -138,6 +138,23 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
     <title>Admin</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column;
+            align-items: center;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
