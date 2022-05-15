@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         foreach ($powers as $power) {
             $str .= $power['name'] . ',';
         }
-        $values['select'] = $str;
+        $values['powers'] = $str;
     } else {
         $name = $_POST['name'];
         $email = $_POST['email'];
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $parts = $_POST['parts'];
         $bio = $_POST['bio'];
         $policy = $_POST['policy'];
-        $select = $_POST['select'];
+        $powers = $_POST['powers'];
         $user = 'u47529';
         $pass = '5988897';
         $db = new PDO('mysql:host=localhost;dbname=u47529', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $superpowers = $db->prepare("DELETE FROM superusers WHERE user_id = ?");
             $superpowers->execute(array($member_id));
 
-            foreach ($select as $value) {
+            foreach ($powers as $value) {
                 $stmt = $db->prepare("SELECT id from superpowers3 WHERE name = ?");
                 $stmt->execute(array($value));
                 $power_id = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -114,7 +114,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
 
     print('Вы успешно авторизовались и видите защищенные паролем данные.');
 
-    $stmt = $db->prepare("SELECT * FROM users2");
+    $stmt = $db->prepare("powers * FROM users2");
     $stmt->execute([]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -135,7 +135,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
-    <title>Admin</title>
+    <title>Админка</title>
     <style>
         .records-list {
             padding: 30px 40px;
