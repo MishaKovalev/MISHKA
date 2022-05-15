@@ -221,8 +221,8 @@ else {
     // Проверяем меняются ли ранее сохраненные данные или отправляются новые.
     if (!empty($_COOKIE[session_name()]) && session_start() && !empty($_SESSION['login'])) {
         try {
-            $stmt = $db->prepare("UPDATE users2 SET name = ?, email = ?, date = ?, gender = ?, limbs = ?, bio = ?, policy = ? WHERE login = ?");
-            $stmt->execute(array($name, $email, $date, $gender, $limbs, $bio, $policy, $member));
+            $stmt = $db->prepare("UPDATE users2 SET name = ?, email = ?, date = ?, gender = ?, parts = ?, bio = ?, policy = ? WHERE login = ?");
+            $stmt->execute(array($name, $email, $date, $gender, $parts, $bio, $policy, $member));
 
             $stmt = $db->prepare("SELECT id FROM users2 WHERE login = ?");
             $stmt->execute(array($member));
@@ -252,8 +252,8 @@ else {
         setcookie('pass', $password);
 
         try {
-            $stmt = $db->prepare("INSERT INTO users2 SET login = ?, pass = ?, name = ?, email = ?, date = ?, gender = ?, limbs = ?, bio = ?, policy = ?");
-            $stmt->execute(array($login, $hash, $name, $email, $date, $gender, $limbs, $bio, $policy));
+            $stmt = $db->prepare("INSERT INTO users2 SET login = ?, pass = ?, name = ?, email = ?, date = ?, gender = ?, parts = ?, bio = ?, policy = ?");
+            $stmt->execute(array($login, $hash, $name, $email, $date, $gender, $parts, $bio, $policy));
             $user_id = $db->lastInsertId();
             foreach ($powers as $value) {
                 $stmt = $db->prepare("SELECT id from superpowers3 WHERE name = ?");
