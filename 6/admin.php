@@ -132,6 +132,38 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
     <title>Админка</title>
+    <style>
+        .records-list {
+            padding: 30px 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table td {
+            border: 2px solid lightgrey;
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            font-size: 13px;
+            padding: 0px 8px;
+        }
+
+        table th {
+            font-size: 15px;
+            color: #fff;
+            background: #ae52f8;
+            height: 30px;
+        }
+
+        #bio {
+            width: 300px;
+        }
+    </style>
 </head>
 
 <body>
