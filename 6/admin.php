@@ -42,7 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $powers = $db->prepare("SELECT distinct name from superusers join superpowers3 pow on power_id = pow.id where user_id = ?");
         $powers->execute(array($member_id));
         $result = $powers->fetchAll(PDO::FETCH_ASSOC);
-        $values['powers'] = implode(',', $result);
+        $str = "";
+        foreach ($result as $power) {
+            $str .= $power['name'] . ',';
+        }
+        $values['select'] = $str;
     } else {
         $name = $_POST['name'];
         $email = $_POST['email'];
@@ -156,7 +160,7 @@ if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
         table th {
             font-size: 15px;
             color: #fff;
-            background: #ae52f8;
+            background: gray;
             height: 30px;
         }
 
